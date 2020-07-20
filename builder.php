@@ -436,10 +436,18 @@
 			return $data;
 		}
 
-		public static function query ($table): DB
+		public function save ()
+		{
+			$stmt = $this->db->prepare($this->query);
+			$stmt->execute();
+		}
+
+		public static function query ($table = ''): DB
 		{
 			// set table name
-			static::$table = $table;
+			if ($table !== '') {
+				static::$table = $table;
+			}
 
 			if (null === static::$instance) {
 	            static::$instance = new static();
