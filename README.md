@@ -28,4 +28,9 @@ Use it and save your time writing queries.<br/>
   
   // Delete
   DB::query('tablename')->delete()->where('id', '=', 3)->save();
+  
+  // Custom Query
+  DB::query()->custom('TRUNCATE TABLE tablename');
+  
+  $data = DB::query()->custom('SELECT * FROM tablename')
 ```
