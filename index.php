@@ -9,4 +9,6 @@
 	$data = DB::query('users')
 			  ->select('id, username')
 			  ->get();
+
+	var_dump($data);
 ?>

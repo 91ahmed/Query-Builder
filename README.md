@@ -30,16 +30,19 @@ Use it and save your time writing queries.<br/>
     'id' => 1,
     'username' => 'ahmed',
     'email' => 'ahmed@gmail.com'
-  ]);
+  ])->save();
   
   // Update
   DB::query('tablename')->update([
     'username' => 'omar',
     'email' => 'omar@gmail.com'
-  ], 'id = 2');
+  ])->where('id', '=', 5)->save();
   
   // Delete
   DB::query('tablename')->delete()->where('id', '=', 3)->save();
+
+  // Truncate
+  DB::query('tablename')->truncate()->save();
   
   // Custom Query
   DB::query()->custom('TRUNCATE TABLE tablename');
